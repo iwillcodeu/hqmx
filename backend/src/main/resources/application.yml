@@ -1,0 +1,18 @@
+web3j:
+  client-address: http://127.0.0.1:8545
+  admin-client: true
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://120.78.138.197:27017/betwin
+  application:
+    name: BetWin
+
+contract:
+  account-from: d34bfde91c4a6921d76402969de0f0d6ffffbc19
+  account-to: 00b6a05af4655fac16d3a7050f4708c884c59ae1
+
+privatekey:
+  account-from: c091392847a7eaad619812703c0a0f936c154132b20baa7a86b11c4ca711f8a8
+  account-to: c082269c5295564ae676895e0fa764fb9bff702fa15ae412d08cdfc177dbdf31
