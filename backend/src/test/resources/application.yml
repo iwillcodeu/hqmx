@@ -1,5 +1,5 @@
 web3j:
-  client-address: http://192.168.254.132:8545
+  client-address: https://rinkeby.infura.io/
   admin-client: true
 
 spring:
@@ -10,9 +10,9 @@ spring:
     name: BetWin
 
 contract:
-  account-from: 40632df9a6c579bfe5d8afb9e328e44e86f18f75
-  account-to: 6579779d64f2640822992a87d1dc3dce6f7f2e52
+  account-from: 3c753a1239f087dec14f4463776d0f43e5b3fbdb
+  account-to: 2f0f7fd84eab92aedfd3cd362c8b761b5162aaba
 
 privatekey:
-  account-from: c3119f6b0f574c067463f80c2c95be4687cb1500657c2c685f896504ec529b02
-  account-to: acc4619c17f8d185801e7cd700278890b0ec391fbda8972a7331723a374d727e
+  account-from: 955801cffff95d31150f66ddddb453f687ff819fffbca55bbfcc53501cb1f074
+  account-to: fd4837883755b5e6d01b74436b0986eae3233a99c9742d243282ab8c9dd5aa41
