@@ -1,31 +1,47 @@
 package com.betwin.game.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 
 @Document(collection = "game")
+@Entity
 public class GameEntity implements Serializable {
 
     private static final long serialVersionUID = 420860970729567323L;
 
     @Id
-    private String uuid;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Type(type = "objectid")
+    @Field("_id")
+    private String id;
 
+    @Field("name")
     private String gameName;
 
+    @Field("progress")
     private String progress;
 
+    @Field("result")
     private String result;
 
+    @Field("create_time")
     private Date createTime;
 
+    @Field("start_time")
     private Date startTime;
 
+    @Field("end_time")
     private Date endTime;
 
     public String getGameName() {

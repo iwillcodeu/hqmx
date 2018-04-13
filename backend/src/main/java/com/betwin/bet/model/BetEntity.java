@@ -1,12 +1,17 @@
 package com.betwin.bet.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "bet")
 public class BetEntity implements Serializable {
@@ -14,20 +19,29 @@ public class BetEntity implements Serializable {
     private static final long serialVersionUID = 949085089040162565L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Type(type = "objectid")
+    @Field("_id")
     private String uuid;
 
+    @Field("account")
     private String account;
 
     private String gameId;
 
+    @Field("bet")
     private boolean bet;
 
+    @Field("win")
     private boolean win;
 
+    @Field("selection")
     private String selection;
 
+    @Field("amount")
     private double amount;
 
+    @Field("bet_time")
     private Date betTime;
 
     public String getAccount() {
