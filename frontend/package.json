@@ -1,8 +1,8 @@
 {
   "name": "betwin",
-  "description": "BetWin Frontend Code",
+  "description": "betwin web project",
   "version": "1.0.0",
-  "author": "BetWin Group",
+  "author": "betwin group",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -27,6 +27,7 @@
     "style-loader": "^0.19.0",
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.3",
+    "web3-loader": "^1.1.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }

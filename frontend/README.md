@@ -1,6 +1,6 @@
 # betwin
 
-> BetWin Frontend Code
+> betwin web project
 
 ## Build Setup
 
