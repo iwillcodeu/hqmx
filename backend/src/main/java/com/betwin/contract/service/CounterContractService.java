@@ -19,46 +19,46 @@ import com.betwin.util.Web3jUtils;
 @Service
 public class CounterContractService extends AContractService {
 
-	@Autowired
-	private Parity web3j;
+    @Autowired
+    private Parity web3j;
 
-	@Value("${privatekey.account-from:}")
-	private String privateKey;
+    @Value("${privatekey.account-from:}")
+    private String privateKey;
 
-	private Counter counter;
+    private Counter counter;
 
-	private static Logger log = LoggerFactory.getLogger(CounterContractService.class);
+    private static Logger log = LoggerFactory.getLogger(CounterContractService.class);
 
-	@Override
-	public String deployContract() throws Exception {
-		Credentials credentials = Credentials.create("0x" + privateKey);
-		contract = Counter.deploy(web3j, credentials, Web3jConstants.GAS_PRICE, Web3jConstants.GAS_LIMIT_GREETER_TX)
-				.sendAsync().get();
+    @Override
+    public String deployContract() throws Exception {
+        Credentials credentials = Credentials.create("0x" + privateKey);
+        contract = Counter.deploy(web3j, credentials, Web3jConstants.GAS_PRICE, Web3jConstants.GAS_LIMIT_GREETER_TX)
+                .sendAsync().get();
 
-		// get tx receipt
-		TransactionReceipt txReceipt = contract.getTransactionReceipt().get();
+        // get tx receipt
+        TransactionReceipt txReceipt = contract.getTransactionReceipt().get();
 
-		// get tx hash and tx fees
-		String deployHash = txReceipt.getTransactionHash();
-		BigInteger deployFees = txReceipt.getCumulativeGasUsed().multiply(Web3jConstants.GAS_PRICE);
+        // get tx hash and tx fees
+        String deployHash = txReceipt.getTransactionHash();
+        BigInteger deployFees = txReceipt.getCumulativeGasUsed().multiply(Web3jConstants.GAS_PRICE);
 
-		counter = (Counter) contract;
+        counter = (Counter) contract;
 
-		log.info("Deploy hash: " + deployHash);
-		log.info("Deploy fees: " + Web3jUtils.weiToGwei(deployFees));
+        log.info("Deploy hash: " + deployHash);
+        log.info("Deploy fees: " + Web3jUtils.weiToGwei(deployFees));
 
-		return "";
-	}
+        return "";
+    }
 
-	public int getCounter() throws InterruptedException, ExecutionException {
-		return counter.getCount().sendAsync().get().intValue();
-	}
+    public int getCounter() throws InterruptedException, ExecutionException {
+        return counter.getCount().sendAsync().get().intValue();
+    }
 
-	public void increaseCounter() throws InterruptedException, ExecutionException {
-		counter.incrementCounter().sendAsync().get();
-	}
+    public void increaseCounter() throws InterruptedException, ExecutionException {
+        counter.incrementCounter().sendAsync().get();
+    }
 
-	public void decreaseCounter() throws InterruptedException, ExecutionException {
-		counter.decrementCounter().sendAsync().get();
-	}
+    public void decreaseCounter() throws InterruptedException, ExecutionException {
+        counter.decrementCounter().sendAsync().get();
+    }
 }

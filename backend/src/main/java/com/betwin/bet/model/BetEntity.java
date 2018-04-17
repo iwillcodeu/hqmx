@@ -22,27 +22,33 @@ public class BetEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Type(type = "objectid")
     @Field("_id")
-    private String uuid;
+    private String id;
 
     @Field("account")
     private String account;
 
+    @Field("game_id")
     private String gameId;
 
-    @Field("bet")
-    private boolean bet;
+    @Field("option")
+    private String option;
 
     @Field("win")
     private boolean win;
-
-    @Field("selection")
-    private String selection;
 
     @Field("amount")
     private double amount;
 
     @Field("bet_time")
     private Date betTime;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAccount() {
         return account;
@@ -52,20 +58,12 @@ public class BetEntity implements Serializable {
         this.account = account;
     }
 
-    public String getGameId() {
-        return gameId;
+    public String getOption() {
+        return option;
     }
 
-    public void setGameId(String gameId) {
-        this.gameId = gameId;
-    }
-
-    public boolean isBet() {
-        return bet;
-    }
-
-    public void setBet(boolean bet) {
-        this.bet = bet;
+    public void setOption(String option) {
+        this.option = option;
     }
 
     public boolean isWin() {
@@ -74,14 +72,6 @@ public class BetEntity implements Serializable {
 
     public void setWin(boolean win) {
         this.win = win;
-    }
-
-    public String getSelection() {
-        return selection;
-    }
-
-    public void setSelection(String selection) {
-        this.selection = selection;
     }
 
     public double getAmount() {
@@ -98,6 +88,14 @@ public class BetEntity implements Serializable {
 
     public void setBetTime(Date betTime) {
         this.betTime = betTime;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
     }
 
     @Override
