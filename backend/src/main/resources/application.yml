@@ -10,7 +10,7 @@ spring:
     name: BetWin
     
 Server:
-  port: 8090
+  port: 9090
 
 contract:
   account-from: d34bfde91c4a6921d76402969de0f0d6ffffbc19
