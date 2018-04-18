@@ -18,46 +18,46 @@ import com.betwin.util.Web3jUtils;
 @Service
 public class CoinContractService extends AContractService {
 
-	@Autowired
-	private Parity web3j;
+    @Autowired
+    private Parity web3j;
 
-	@Value("${privatekey.account-from:}")
-	private String privateKey;
+    @Value("${privatekey.account-from:}")
+    private String privateKey;
 
-	private Coin coin;
+    private Coin coin;
 
-	private static Logger log = LoggerFactory.getLogger(CounterContractService.class);
+    private static Logger log = LoggerFactory.getLogger(CounterContractService.class);
 
-	@Override
-	public String deployContract() throws Exception {
-		Credentials credentials = Credentials.create("0x" + privateKey);
-		contract = Coin.deploy(web3j, credentials, Web3jConstants.GAS_PRICE, Web3jConstants.GAS_LIMIT_GREETER_TX)
-				.sendAsync().get();
+    @Override
+    public String deployContract() throws Exception {
+        Credentials credentials = Credentials.create("0x" + privateKey);
+        contract = Coin.deploy(web3j, credentials, Web3jConstants.GAS_PRICE, Web3jConstants.GAS_LIMIT_GREETER_TX)
+                .sendAsync().get();
 
-		// get tx receipt
-		TransactionReceipt txReceipt = contract.getTransactionReceipt().get();
+        // get tx receipt
+        TransactionReceipt txReceipt = contract.getTransactionReceipt().get();
 
-		// get tx hash and tx fees
-		String deployHash = txReceipt.getTransactionHash();
-		BigInteger deployFees = txReceipt.getCumulativeGasUsed().multiply(Web3jConstants.GAS_PRICE);
+        // get tx hash and tx fees
+        String deployHash = txReceipt.getTransactionHash();
+        BigInteger deployFees = txReceipt.getCumulativeGasUsed().multiply(Web3jConstants.GAS_PRICE);
 
-		coin = (Coin) contract;
+        coin = (Coin) contract;
 
-		log.info("Deploy hash: " + deployHash);
-		log.info("Deploy fees: " + Web3jUtils.weiToGwei(deployFees));
+        log.info("Deploy hash: " + deployHash);
+        log.info("Deploy fees: " + Web3jUtils.weiToGwei(deployFees));
 
-		return "";
-	}
+        return "";
+    }
 
-	public long getBalance(String account) throws InterruptedException, ExecutionException {
-		return coin.getBalance(account).sendAsync().get().longValue();
-	}
+    public long getBalance(String account) throws InterruptedException, ExecutionException {
+        return coin.getBalance(account).sendAsync().get().longValue();
+    }
 
-	public void issue(String account, BigInteger amount) throws InterruptedException, ExecutionException {
-		coin.issue(account, amount).sendAsync().get();
-	}
-	
-	public void transfer(String account, long amount) throws InterruptedException, ExecutionException {
-		coin.transfer(account, BigInteger.valueOf(amount)).sendAsync().get();
-	}
+    public void issue(String account, BigInteger amount) throws InterruptedException, ExecutionException {
+        coin.issue(account, amount).sendAsync().get();
+    }
+
+    public void transfer(String account, long amount) throws InterruptedException, ExecutionException {
+        coin.transfer(account, BigInteger.valueOf(amount)).sendAsync().get();
+    }
 }
