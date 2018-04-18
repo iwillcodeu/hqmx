@@ -28,8 +28,50 @@ window.addEventListener("load", function () {
         } else {
             balance = web3.fromWei(result.toNumber());
             console.log(balance);
-            alert("账户地址: " + account + "\n" + "账户余额: " + balance);
+            //alert("账户地址: " + account + "\n" + "账户余额: " + balance);
+
+            console.log("账户地址: " + account + "\n" + "账户余额: " + balance)
+            new Vue({
+                el: '#getaccount',
+                data: {
+                    account: account,
+                    balance: balance
+                }
+            })
+
         }
     });
     //startApp();
+
+
 });
+
+<style lang="scss">
+#getaccount {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+h1, h2 {
+    font-weight: normal;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+a {
+    color: #42b983;
+}
+</style>
+
