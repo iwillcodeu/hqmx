@@ -43,8 +43,8 @@ public class BetControllerImpl implements IBetController {
     }
 
     @Override
-    @RequestMapping(value = "/account/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<BetDto>> getBeteByAccount(@PathVariable String account) {
+    @RequestMapping(value = "/account/{account}", method = RequestMethod.GET)
+    public ResponseEntity<List<BetDto>> getBetByAccount(@PathVariable String account) {
         if (null == account) {
             log.error("input bet account is null");
             return new ResponseEntity<List<BetDto>>(HttpStatus.BAD_REQUEST);
@@ -71,25 +71,25 @@ public class BetControllerImpl implements IBetController {
 
     @Override
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<BetEntity> createBet(@RequestBody BetDto betDto, BindingResult bindingResult) {
+    public ResponseEntity<BetEntity> createBet(@RequestBody BetEntity betNew, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             log.error("errors in request body");
             return new ResponseEntity<BetEntity>(HttpStatus.BAD_REQUEST);
 
         }
-        BetEntity bet = betService.saveBet(betDto);
+        BetEntity bet = betService.saveBet(betNew);
         return new ResponseEntity<BetEntity>(bet, HttpStatus.CREATED);
     }
 
     @Override
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity<BetEntity> updateBet(@RequestBody BetDto betDto, BindingResult bindingResult) {
+    public ResponseEntity<BetEntity> updateBet(@RequestBody BetEntity betUpdate, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             log.error("errors in request body");
             return new ResponseEntity<BetEntity>(HttpStatus.BAD_REQUEST);
 
         }
-        BetEntity bet = betService.updatebet(betDto);
+        BetEntity bet = betService.updatebet(betUpdate);
         return new ResponseEntity<BetEntity>(bet, HttpStatus.ACCEPTED);
     }
 

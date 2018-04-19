@@ -8,6 +8,9 @@ spring:
       uri: mongodb://120.78.138.197:27017/betwin
   application:
     name: BetWin
+    
+Server:
+  port: 9090
 
 contract:
   account-from: d34bfde91c4a6921d76402969de0f0d6ffffbc19

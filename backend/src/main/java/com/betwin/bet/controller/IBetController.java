@@ -12,13 +12,13 @@ public interface IBetController {
 
     ResponseEntity<BetDto> getBetById(String id);
 
-    ResponseEntity<List<BetDto>> getBeteByAccount(String account);
+    ResponseEntity<List<BetDto>> getBetByAccount(String account);
 
     ResponseEntity<List<BetEntity>> findBetByCondition(String condition);
 
     ResponseEntity<List<BetEntity>> findBetByDate(String condition);
 
-    ResponseEntity<BetEntity> createBet(BetDto betDto, BindingResult bindingResult);
+    ResponseEntity<BetEntity> createBet(BetEntity betNew, BindingResult bindingResult);
 
-    ResponseEntity<BetEntity> updateBet(BetDto betDto, BindingResult bindingResult);
+    ResponseEntity<BetEntity> updateBet(BetEntity betUpdate, BindingResult bindingResult);
 }

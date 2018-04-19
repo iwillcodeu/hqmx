@@ -11,7 +11,7 @@ public interface IBetService {
 
     List<BetDto> findBetByAccount(String account);
 
-    BetEntity saveBet(BetDto betDto);
+    BetEntity saveBet(BetEntity bet);
 
-    BetEntity updatebet(BetDto betDto);
+    BetEntity updatebet(BetEntity betUpdate);
 }

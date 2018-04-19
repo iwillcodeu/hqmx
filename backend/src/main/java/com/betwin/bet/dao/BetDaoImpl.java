@@ -3,6 +3,8 @@ package com.betwin.bet.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -30,7 +32,7 @@ public class BetDaoImpl implements IBetDao {
     @Override
     public List<BetEntity> findByAccount(String account) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("account").is(account));
+        query.addCriteria(Criteria.where("account").is(account)).with(new Sort(Direction.DESC,"bet_time"));
         List<BetEntity> betList = mongoTemplate.find(query, BetEntity.class);
         return betList;
     }

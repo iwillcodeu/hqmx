@@ -68,26 +68,20 @@ public class BetServiceImpl implements IBetService {
     }
 
     @Override
-    public BetEntity saveBet(BetDto betDto) {
-        BetEntity bet = new BetEntity();
-        bet.setAccount(betDto.getAccount());
-        bet.setAmount(betDto.getAmount());
-        bet.setOption(betDto.getOption());
-        bet.setGameId(betDto.getGameId());
+    public BetEntity saveBet(BetEntity bet) {
         bet.setBetTime(new Date());
         bet.setWin(false);
-        bet.setGameId(betDto.getGameId());
 
         betDao.saveBet(bet);
         return bet;
     }
 
     @Override
-    public BetEntity updatebet(BetDto betDto) {
-        BetEntity bet = betDao.findBetById(betDto.getBetId());
-        bet.setAmount(betDto.getAmount());
-        bet.setOption(betDto.getOption());
-        bet.setWin(betDto.isWin());
+    public BetEntity updatebet(BetEntity betUpdate) {
+        BetEntity bet = betDao.findBetById(betUpdate.getId());
+        bet.setAmount(betUpdate.getAmount());
+        bet.setOption(betUpdate.getOption());
+        bet.setWin(betUpdate.isWin());
 
         betDao.updateBet(bet);
         return bet;
