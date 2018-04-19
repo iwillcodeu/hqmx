@@ -1,13 +1,18 @@
-//英文JSON en-us.json
 {
     "userName":"UserName",
     "password":"Password",
     "login":"Login In",
-    "nav":{
+    "account":{
+        "address":"Account Address",
+        "balance":"Account Balance",
+        "deposit":"Deposit",
+        "withdraw":"Withdraw"
+    },
+
+    "navigation":{
         "home":"Home",
-        "news":"News",
-        "products":"Products",
-        "about":"About Us"
+        "market":"Market",
+        "myAccount":"Account"
     },
     "week":["Sun","Mon","Tues","Wed","Thur","Fri","Sat"]
 }

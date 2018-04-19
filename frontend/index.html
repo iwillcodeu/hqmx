@@ -7,28 +7,24 @@
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
     <script src="http://localhost:8098"></script>
+
   </head>
   <body>
     <div id="app" class="text-center"> ></div>
     <div id="getaccount">
 
-     <h3>{{balance}}</h3>
+      <h3>{{balance}}</h3>
       <br>
       <br>
       <b-badge variant="light">{{account}}</b-badge>
 
-<!--      <h5><b-badge>Account Address:</b-badge>{{account}}</h5>
-      <h5><b-badge>Account Balance:</b-badge>{{balance}}</h5>-->
+
+      <p>{{$t("userName")}}</p>
+
     </div>
-<!--
-    <div class="text-center">
-      <b-button variant="primary">
-        Notifications <b-badge variant="light">4</b-badge>
-      </b-button>
-    </div>-->
 
     <script src="/dist/build.js"></script>
-    <script src="/src/scripts/accounts/metamaskaccount.js"></script>
+    <script src="/src/scripts/accounts/metamask-account.js"></script>
 
   </body>
 </html>

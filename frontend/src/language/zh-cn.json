@@ -1,13 +1,18 @@
-//中文JSON zh-cn.json
 {
     "userName":"用户名",
-    "password":"密码",
-    "login":"登录",
-    "nav":{
-        "home":"首页",
-        "news":"资讯中心",
-        "products":"产品中心",
-        "about":"关于我们"
+    "password":"密 码",
+    "login":"登陆",
+    "account":{
+        "address":"账户地址",
+        "balance":"账户余额",
+        "deposit":"账户充值",
+        "withdraw":"账户提现"
     },
-    "week":["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+
+    "navigation":{
+        "home":"主页",
+        "market":"市场",
+        "myAccount":"账户"
+    },
+    "week":["星期一","星期二","星期三","星期四","星期五","星期六","星期日"]
 }
