@@ -18,7 +18,6 @@ window.addEventListener("load", function () {
             console.error(error);
         } else {
             account = result[0].toString();
-            console.log(account);
         }
     });
     var balance = 0
@@ -27,10 +26,10 @@ window.addEventListener("load", function () {
             console.error(error);
         } else {
             balance = web3.fromWei(result.toNumber());
-            console.log(balance);
+            balance = parseFloat(balance).toFixed(3);
             //alert("账户地址: " + account + "\n" + "账户余额: " + balance);
-
             console.log("账户地址: " + account + "\n" + "账户余额: " + balance)
+
             new Vue({
                 el: '#getaccount',
                 data: {
@@ -43,35 +42,5 @@ window.addEventListener("load", function () {
     });
     //startApp();
 
-
 });
-
-<style lang="scss">
-#getaccount {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-
-h1, h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
-}
-</style>
 
