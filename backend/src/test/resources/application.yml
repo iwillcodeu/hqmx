@@ -1,5 +1,5 @@
 web3j:
-  client-address: https://rinkeby.infura.io/
+  client-address: http://120.78.138.197:8545
   admin-client: true
 
 spring:
@@ -10,9 +10,23 @@ spring:
     name: BetWin
 
 contract:
-  account-from: 3c753a1239f087dec14f4463776d0f43e5b3fbdb
-  account-to: 2f0f7fd84eab92aedfd3cd362c8b761b5162aaba
+  account-from: e4f5205dc25b109ce1eb204e7b55e2c338946574
+  account-to: 9f08bf556db2453b2772519c0ce842458a13a7d7
+  
+  platform:   f4432f17673876ad8a48d45a83350ba2516f6550
+  orgnizor:   cd74590e032113f4c1617f81f6f1a61a15bd48d0
+  playerwin:  8aae442b0bc66e504fe5cdad9e45ed03d2ad4927
+  playerlose: 48405dfd0d1eed9bb1488ce2a7850b43434f052b
+  playerdraw: 6a07e26dae6ee97b642201dbcf5afa0d4611996f
+  playerwin2: e8a94e1ea025b5c60a36bd4f8161bf8055d4ba7d
 
 privatekey:
-  account-from: 955801cffff95d31150f66ddddb453f687ff819fffbca55bbfcc53501cb1f074
-  account-to: fd4837883755b5e6d01b74436b0986eae3233a99c9742d243282ab8c9dd5aa41
+  account-from: c131dde5d0cb822a56cc98eb9909c03ae9441e0370d96ddbcb82f5e16770d8c0
+  account-to: cfeae916d889cb7ab231b4b339286f14e3d8363ccb411844948882b3ccfaca87
+  
+  platform:   3db34f4beb34968d077903f54586e0cd3d1afe9ac96a0a930b029e20dbd1dc45
+  orgnizor:   2a0ab21619cffa0e0912489774ca0d9cfe6baf4d05846cb4d614e48b829a7596
+  playerwin:  39082481e1487a6c297009ee697507bd1e35e6eb51cd2aba0e6bd99671b9fed2
+  playerlose: 0476d850b97c38db44e8c965a6e5d5b4f1c811f1e786b2980067a755c53ce860
+  playerdraw: e3270254b2e0b4e775278c9544dcb6e20940254131be6890b97d5738df81056f
+  playerwin2: 97fef3fe8fb001a50f8f55e79b58445c668d46ad37f4d24e45df059368a6d457
