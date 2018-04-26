@@ -44,7 +44,7 @@ public class CoinContractService extends AContractService {
         coin = (Coin) contract;
 
         log.info("Deploy hash: " + deployHash);
-        log.info("Deploy fees: " + Web3jUtils.weiToGwei(deployFees));
+        log.info("Deploy fees: " + Web3jUtils.weiToEther(deployFees));
 
         return "";
     }
@@ -54,10 +54,10 @@ public class CoinContractService extends AContractService {
     }
 
     public void issue(String account, BigInteger amount) throws InterruptedException, ExecutionException {
-        coin.issue(account, amount).sendAsync().get();
+        coin.issue(account, amount,amount).sendAsync().get();
     }
 
     public void transfer(String account, long amount) throws InterruptedException, ExecutionException {
-        coin.transfer(account, BigInteger.valueOf(amount)).sendAsync().get();
+        coin.transfer(account, BigInteger.valueOf(amount),BigInteger.valueOf(amount)).sendAsync().get();
     }
 }
