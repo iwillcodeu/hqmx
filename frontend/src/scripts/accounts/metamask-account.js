@@ -1,3 +1,5 @@
+//import i18n from "./../../utils/i18n-support.js"
+
 window.addEventListener("load", function () {
 
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -31,7 +33,8 @@ window.addEventListener("load", function () {
             console.log("账户地址: " + account + "\n" + "账户余额: " + balance)
 
             new Vue({
-                el: '#getaccount',
+                el: '#getAccount',
+                //i18n,
                 data: {
                     account: account,
                     balance: balance
