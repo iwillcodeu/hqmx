@@ -8,12 +8,12 @@ contract Coin {
 	        issuer = msg.sender;
 	    }
 
-	    function issue(address account, uint256 amount) {
+	    function issue(address account, uint256 amount) payable {
 	        if (msg.sender != issuer) throw;
 	        balances[account] += amount;
 	    }
 
-	    function transfer(address to, uint256 amount) {
+	    function transfer(address to, uint256 amount) payable {
 	        if (balances[msg.sender] < amount) throw;
 
 	        balances[msg.sender] -= amount;
