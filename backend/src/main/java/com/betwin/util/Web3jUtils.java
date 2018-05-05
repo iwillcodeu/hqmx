@@ -107,10 +107,12 @@ public class Web3jUtils {
 	public static TransactionReceipt transferFromCoinbaseAndWait(Web3j web3j, String to, BigInteger amountWei) 
 			throws Exception 
 	{
+		System.out.println("transferFromCoinbaseAndWait");
 		String coinbase = getCoinbase(web3j).getResult();
 		BigInteger nonce = getNonce(web3j, coinbase);
 		// this is a contract method call -> gas limit higher than simple fund transfer
 		BigInteger gasLimit = Web3jConstants.GAS_LIMIT_ETHER_TX.multiply(BigInteger.valueOf(2)); 
+		System.out.println("gasLimit "+gasLimit.intValue());
 		Transaction transaction = Transaction.createEtherTransaction(
 				coinbase, 
 				nonce, 
@@ -118,11 +120,13 @@ public class Web3jUtils {
 				gasLimit, 
 				to, 
 				amountWei);
-
+		
+		System.out.println("createEtherTransaction ");
 		EthSendTransaction ethSendTransaction = web3j
 				.ethSendTransaction(transaction)
 				.sendAsync()
 				.get();
+		System.out.println("ethSendTransaction ");
 
 		String txHash = ethSendTransaction.getTransactionHash();
 		
