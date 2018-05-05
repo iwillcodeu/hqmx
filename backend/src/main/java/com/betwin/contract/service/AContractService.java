@@ -7,7 +7,6 @@ import org.web3j.tx.Contract;
 public abstract class AContractService implements IContractService {
     private static Logger log = LoggerFactory.getLogger(AContractService.class);
 
-
     protected Contract contract;
 
     @Override
@@ -17,7 +16,7 @@ public abstract class AContractService implements IContractService {
 
         return contractAddress;
     }
-    
+
     public Contract getContract() {
         return contract;
     }

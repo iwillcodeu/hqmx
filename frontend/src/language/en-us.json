@@ -1,0 +1,18 @@
+{
+    "userName":"User Name",
+    "password":"Password",
+    "login":"Login In",
+    "account":{
+        "address":"Account Address",
+        "balance":"Account Balance",
+        "deposit":"Deposit",
+        "withdraw":"Withdraw"
+    },
+
+    "navigation":{
+        "home":"Home",
+        "market":"Market",
+        "myAccount":"Account"
+    },
+    "week":["Sun","Mon","Tues","Wed","Thur","Fri","Sat"]
+}

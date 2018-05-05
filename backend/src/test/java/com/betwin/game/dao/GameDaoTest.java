@@ -30,17 +30,25 @@ public class GameDaoTest {
     public void testSaveGame() {
         String gameName = "RomaVsChina";
         String progress = "ongoing";
-        String result = "1:0";
+        String result = "3:0";
 
         GameEntity game = new GameEntity();
         game.setGameName(gameName);
         game.setProgress(progress);
         game.setResult(result);
+        game.setCreateBy("test");
         game.setCreateTime(new Date(System.currentTimeMillis()));
         game.setStartTime(new Date(System.currentTimeMillis()));
         game.setEndTime(new Date(System.currentTimeMillis()));
-
+        game.getOptions().add("1:2");
+        game.getOptions().add("2:2");
         gameDao.saveGame(game);
+
+        String id = game.getId();
+        System.out.println(id);
+        GameEntity gameExpected = gameDao.findGameById(id);
+        assertNotNull(gameExpected);
+        assertEquals(result,gameExpected.getResult());
     }
 
 }

@@ -1,7 +1,10 @@
 package com.betwin.game.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +15,6 @@ import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
 
 @Document(collection = "game")
 @Entity
@@ -35,6 +37,9 @@ public class GameEntity implements Serializable {
     @Field("result")
     private String result;
 
+    @Field("create_by")
+    private String createBy;
+
     @Field("create_time")
     private Date createTime;
 
@@ -43,6 +48,16 @@ public class GameEntity implements Serializable {
 
     @Field("end_time")
     private Date endTime;
+
+    @Field("options")
+    private List<String> options = new ArrayList<>();
+
+    @Field("contract_addr")
+    private String contractAddress;
+
+    public String getId() {
+        return id;
+    }
 
     public String getGameName() {
         return gameName;
@@ -68,6 +83,14 @@ public class GameEntity implements Serializable {
         this.result = result;
     }
 
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -90,6 +113,22 @@ public class GameEntity implements Serializable {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public List<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<String> options) {
+        this.options = options;
+    }
+
+    public String getContractAddress() {
+        return contractAddress;
+    }
+
+    public void setContractAddress(String contractAddress) {
+        this.contractAddress = contractAddress;
     }
 
     @Override
