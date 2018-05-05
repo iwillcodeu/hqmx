@@ -27,43 +27,43 @@ public class FootballResultGambelService extends AContractService {
 
 	@Autowired
 	private Parity web3j;
-	
+
 	@Value("${privatekey.orgnizor:}")
 	private String privateKey;
-	
+
 	private static Logger log = LoggerFactory.getLogger(FootballResultGambelService.class);
-	
-	
+
+
 	@Override
 	public String deployContract() throws Exception {
-		
+
 //		List<byte[]> resultList = new ArrayList<byte[]>();
-		
+
 //		byte[] win32= new byte[32];
 //		byte[] lose32= new byte[32];
 //		byte[] draw32= new byte[32];
-//		
+//
 //		byte[] win="win".getBytes("UTF-8");
 //		byte[] lose="lose".getBytes("UTF-8");
 //		byte[] draw="draw".getBytes("UTF-8");
 //		System.out.println(win.length);
-//		
+//
 //		for(int i=0;i<win.length;i++)
 //		{
 //			System.out.println(win[i]);
 //		}
-//		
+//
 //		System.out.println("-----------------------");
-//		
+//
 ////		byte[] lose="lose".getBytes("UTF-8");
-//		
+//
 //		for(int i=0;i<lose.length;i++)
 //		{
 //			System.out.println(lose[i]);
 //		}
 //		System.out.println("-----------------------");
 ////		byte[] draw="draw".getBytes("UTF-8");
-//		
+//
 //		for(int i=0;i<draw.length;i++)
 //		{
 //			System.out.println(draw[i]);
@@ -72,11 +72,11 @@ public class FootballResultGambelService extends AContractService {
 //		System.out.println("win".getBytes("UTF-8").toString());
 //		System.out.println("lose".getBytes("UTF-8").toString());
 //		System.out.println("draw".getBytes("UTF-8").toString());
-//		
+//
 //		System.arraycopy(win, 0, win32, 0, win.length);
 //		System.arraycopy(lose, 0, lose32, 0, lose.length);
 //		System.arraycopy(draw, 0, draw32, 0, draw.length);
-		
+
 		List<BigInteger> resultList = new ArrayList<BigInteger>();
 		BigInteger win = new BigInteger("1");
 		BigInteger lose = new BigInteger("2");
@@ -84,7 +84,7 @@ public class FootballResultGambelService extends AContractService {
 		System.out.println("win "+win);
 		System.out.println("lose "+lose);
 		System.out.println("draw "+draw);
-		
+
 		resultList.add(win);
 		resultList.add(lose);
 		resultList.add(draw);
