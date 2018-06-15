@@ -1,8 +1,8 @@
 <template>
   <div>
-    <header>
+    <div>
       <img src="../assets/home.png"/>
-    </header>
+    </div>
   </div>
 </template>
 
@@ -13,5 +13,13 @@
 </script>
 
 <style scoped>
-
+  header{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  img{
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+  }
 </style>
