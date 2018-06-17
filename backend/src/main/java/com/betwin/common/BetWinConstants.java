@@ -10,4 +10,6 @@ public interface BetWinConstants {
 
     String MSG_LENGTH_BETWEEN_5_30 = " length should be between 5 and 30";
 
+    int MAX_PAGE_SIZE = 20;
+
 }

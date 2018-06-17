@@ -8,6 +8,9 @@ spring:
       uri: mongodb://120.78.138.197:27017/betwin
   application:
     name: BetWin
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
     
 Server:
   port: 9090
